@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Mandar Dhamale</title>
+    <script>
+        const theme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', theme);
+    </script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="about.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+    <div class="main-wrapper">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <a class='logo-text' href='/'>Mandar Dhamale</a>
+            </div>
+            <nav>
+                <div class="togglebtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="navlinks">
+                    <li><a href='/'>Home</a></li>
+                    <li><a href='/about'>About</a></li>
+                    <li><a href='/work'>Work</a></li>
+                    <li><a href='/education'>Education</a></li>
+                    <li><a href='/certifications'>Certifications</a></li>
+                    <li><a href='/projects'>Projects</a></li>
+                    <li><a href="#" id="nav-contact">Contact</a></li>
+                </ul>
+                <div class="theme-switch">
+                    <input type="checkbox" id="theme-toggle" />
+                    <label for="theme-toggle" class="theme-label">
+                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </label>
+                </div>
+            </nav>
+        </header>
+
+        <!-- About Terminal Section -->
+        <section class="about-section">
+            <div class="terminal-container">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <div class="terminal-button close"></div>
+                        <div class="terminal-button minimize"></div>
+                        <div class="terminal-button expand"></div>
+                    </div>
+                    <div class="terminal-title">about.sh</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-content">
+                        <!-- Text will be typed here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Popup -->
+        <div class="popup-overlay" id="popup-overlay"></div>
+        <div id="contact-popup" class="contact-popup">
+            <span class="close-popup">×</span>
+            <div class="contact-methods">
+                <a href="mailto:vj2269@columbia.edu" class="contact-card">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>Email</span>
+                    <p>vj2269@columbia.edu</p>
+                </a>
+                <a href="https://calendly.com/vinitjuneja" target="_blank" class="contact-card">
+                    <i class="fa-solid fa-calendar"></i>
+                    <span>Schedule a Call</span>
+                    <p>Book a 30-min chat</p>
+                </a>
+                <a href="tel:+9089525914" class="contact-card">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>Phone</span>
+                    <p>+1 (908) 9525914</p>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="resume-modal-overlay" id="resume-modal-overlay">
+        <div class="resume-modal">
+          <div class="resume-modal-header">
+            <div class="resume-title">
+              <i class="fa-regular fa-file-pdf"></i>
+              <span>Resume Preview</span>
+            </div>
+            <div class="resume-actions">
+              <a href="assets/Vinit_PM_Tech.pdf" download class="download-action" title="Download Resume">
+                <i class="fa-solid fa-download"></i>
+              </a>
+              <a href="assets/Vinit_PM_Tech.pdf" target="_blank" class="open-action" title="Open in New Tab">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              </a>
+              <button class="close-resume-modal" title="Close">&times;</button>
+            </div>
+          </div>
+          <div class="resume-modal-content">
+            <object id="resume-object" data="assets/Vinit_PM_Tech.pdf" type="application/pdf" width="100%" height="100%">
+              <iframe id="resume-iframe" src="assets/Vinit_PM_Tech.pdf" title="Resume Preview"></iframe>
+            </object>
+          </div>
+        </div>
+      </div>
+
+    <div class="footer-cv-wrapper">
+        <a
+          href="assets/Vinit_PM_Tech.pdf"
+          class="cv-floating-button"
+          download
+          aria-label="Download CV"
+        >
+          <i class="fa-solid fa-file-pdf"></i>
+          <span class="button-text">Download CV</span>
+        </a>
+      
+        <!-- Eye icon (calls openResumePreview on click) -->
+        <div class="footer-eye-btn" onclick="openResumePreview()" title="Preview CV">
+          <i class="fa-regular fa-eye"></i>
+        </div>
+      </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
+    <script src="script.js"></script>
+    <script src="about.js"></script>
+    <script src="terminal.js"></script>
+    <script src="chat.js"></script>
+    <script src="cv-button.js"></script>
+    <script>
+        function openResumePreview() {
+          const resumeModalOverlay = document.getElementById('resume-modal-overlay');
+          const resumeIframe = document.getElementById('resume-iframe');
+          
+          if (resumeIframe && resumeModalOverlay) {
+            resumeIframe.src = 'assets/Vinit_PM_Tech.pdf';
+            resumeModalOverlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+          }
+        }
+    </script>
+</body>
+</html>

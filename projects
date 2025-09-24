@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vinit Juneja - Projects</title>
+  <script>
+    // Theme initialization and toggle functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const theme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      
+      // Set correct checkbox state based on theme
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        themeToggle.checked = theme === 'light';
+      }
+
+      // Ensure icons display correctly on page load
+      updateThemeIcons(theme);
+      
+      // Add event listener for theme toggle
+      if (themeToggle) {
+        themeToggle.addEventListener('change', function() {
+          const newTheme = this.checked ? 'light' : 'dark';
+          document.documentElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          updateThemeIcons(newTheme);
+        });
+      }
+    });
+
+    // Separate function to update theme icons visibility
+    function updateThemeIcons(theme) {
+      const sunIcon = document.querySelector('.sun-icon');
+      const moonIcon = document.querySelector('.moon-icon');
+      
+      if (sunIcon && moonIcon) {
+        if (theme === 'light') {
+          sunIcon.style.display = 'block';
+          moonIcon.style.display = 'none';
+        } else {
+          sunIcon.style.display = 'none';
+          moonIcon.style.display = 'block';
+        }
+      }
+    }
+  </script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="projects.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="background-mesh"></div>
+  <div class="grain"></div>
+  <div class="cursor-glow"></div>
+  <div class="main-wrapper">
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <a class='logo-text' href='/'>Vinit Juneja</a>
+      </div>
+      <nav>
+        <div class="togglebtn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="navlinks">
+          <li><a href='/'>Home</a></li>
+          <li><a href='/about'>About</a></li>
+          <li><a href='/work'>Work</a></li>
+          <li><a href='/education'>Education</a></li>
+          <li><a href='/certifications'>Certifications</a></li>
+          <li><a class='active' href='/projects'>Projects</a></li>
+          <li><a href="#" id="nav-contact">Contact</a></li>
+        </ul>
+        <div class="theme-switch">
+            <input type="checkbox" id="theme-toggle" />
+            <label for="theme-toggle" class="theme-label">
+                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+            </label>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Projects Section -->
+    <section class="projects-wrapper">
+      <div class="container">
+        <h1 class="section-title">My Projects</h1>
+        <div class="project-tabs">
+          <button class="tab-button active" data-tab="all">All</button>
+          <button class="tab-button" data-tab="technical">Technical</button>
+          <button class="tab-button" data-tab="business">Business</button>
+        </div>
+
+        <div class="project-grid">
+          <!-- Business Projects -->
+
+          <div class="project-card technical" data-category="technical" data-aos="fade-up" data-aos-delay="800">
+            <img src="assets/microsoft-teams.jpg" alt="Microsoft Teams Clone Screenshot" class="project-image">
+            <h3>Microsoft Engage'21 - Microsoft Teams Clone</h3>
+            <p>Built and deployed a Microsoft Teams clone using React, Node.js, Express, Socket.io, and WebRTC, leveraging Microsoft Azure for CI/CD during a 2-month internship in 2021.</p>
+          </div>
+
+          <div class="project-card technical" data-category="technical" data-aos="fade-up" data-aos-delay="900">
+            <img src="assets/polling-visualization.jpg" alt="Presidential Polling Dashboard" class="project-image">
+            <h3>Presidential Election Polling - Data Visualization</h3>
+            <p>Created an interactive Power BI dashboard for 2024 U.S. presidential polling data, analyzing voter preferences, favorability ratings, and regional trends using favorability_polls and president_polls datasets.</p>
+            <a href="https://www.loom.com/share/97add0144e4340e89855e9177621e853?sid=5b8964bf-745d-43bd-9d49-a707b42c7b84" class="view-button" target="_blank" rel="noopener noreferrer">View Project</a>
+          </div>
+          
+          <div class="project-card business" data-category="business" data-aos="fade-up" data-aos-delay="500">
+            <img src="assets/resy-analysis.jpg" alt="Resy Product Analysis Mockup" class="project-image">
+            <h3>DineFlow - A Product Analysis</h3>
+            <p>Conducted a product analysis of Resy's dining reservation platform, focusing on AI-driven personalization, dynamic pricing, and real-time updates, proposing improvements for tech-savvy diners and restaurant managers.</p>
+            <a href="https://docs.google.com/presentation/d/1wXCTKAHFvfuZfSaEEaJsKwKnYYtHGlnL/edit?usp=sharing&ouid=101837222027770360399&rtpof=true&sd=true" class="view-button" target="_blank" rel="noopener noreferrer">View Project</a>
+          </div>
+          
+
+          <div class="project-card business" data-category="business" data-aos="fade-up" data-aos-delay="600">
+            <img src="assets/zenlock.jpg" alt="ZenLock Pitch Deck Mockup" class="project-image">
+            <h3>Lion Tank - ZenLock (Social Media & Attention Economy)</h3>
+            <p>Developed a pitch for ZenLock, a smart shield to reduce screen time, targeting tech-savvy users and schools with RFID/Bluetooth technology, addressing the attention economy's impact on digital habits.</p>
+            <a href="https://docs.google.com/presentation/d/1kjOMsfwU3Uq0rVYyIx6xRHUDUJt5vBXR/edit?usp=sharing&ouid=101837222027770360399&rtpof=true&sd=true" class="view-button" target="_blank" rel="noopener noreferrer">View Project</a>
+          </div>
+
+          <div class="project-card technical" data-category="technical" data-aos="fade-up" data-aos-delay="1300">
+            <img src="assets/sentiment-analysis.jpg" alt="Sentiment Classification System Mockup" class="project-image">
+            <h3>Role of Hybrid Optimization in Improving Performance of Sentiment Classification System</h3>
+            <p>Enhanced sentiment analysis on Twitter data using a hybrid model with compression, noise removal, and CNN, improving accuracy and performance for understanding public opinion on social media.</p>
+            <a href = "https://drive.google.com/file/d/1_J0WsQffr1ouhvrCIro2ID8m-ru3HFDC/view?usp=sharing" class="view-button" target="_blank" rel="noopener noreferrer">View Project</a> 
+          </div>
+
+          <div class="project-card business" data-category="business" data-aos="fade-up" data-aos-delay="400">
+            <img src="assets/discount-brokerages.jpg" alt="Discount Brokerages Analysis Mockup" class="project-image">
+            <h3>New Players on the Block: Can India's Discount Brokerages Sustain Market Share?</h3>
+            <p>Analyzed the competitive dynamics of India's discount brokerages (e.g., Zerodha, Groww, Upstox) using game theory, assessing their market share sustainability against traditional brokers like ICICI and HDFC Securities.</p>
+            <a href="https://drive.google.com/file/d/1bFLVLy9JUAlL7JIiRnbV6o05XvysD5oW/view?usp=sharing" class="view-button" target="_blank" rel="noopener noreferrer">View Project</a> 
+          </div>
+
+          
+          <div class="project-card business" data-category="business" data-aos="fade-up">
+            <img src="assets/silicon-harlem.jpg" alt="Silicon Harlem Strategy Mockup" class="project-image">
+            <h3>Silicon Harlem - Business Consulting</h3>
+            <p>Designed a comprehensive broadband funding strategy for Silicon Harlem as part of Columbia's Operations Consulting course, focusing on grants like BEAD, AHCP, and ACP to enhance digital inclusivity in Harlem. I can't share my work as I have signed a NDA!</p>            
+          </div>
+
+
+          <div class="project-card technical" data-category="technical" data-aos="fade-up" data-aos-delay="700">
+            <img src="assets/yuan-ze.jpg" alt="Yuan-Ze Research Project Visualization" class="project-image">
+            <h3>Yuan-Ze University - Research Project</h3>
+            <p>Developed a vision-based system for elderly day care pattern analysis by combining SlowFast and ByteTrack models, using Pandas, OpenCV, and NumPy for data-driven insights under Prof. Tien-Lung Sun. Can't share more of my work because of a NDA!</p>
+          </div>
+
+          
+
+          <!-- Technical Projects -->
+          
+
+          
+          
+
+          <div class="project-card technical" data-category="technical" data-aos="fade-up" data-aos-delay="1000">
+            <img src="assets/resume-parser.jpg" alt="ResumeParser-Classifier System Mockup" class="project-image">
+            <h3>ResumeParser-Classifier System</h3>
+            <p>Built a multi-label classification model using Deep Learning and NLP to classify resumes into IT job categories, integrating a Resume Parser with NER, DNN, CNN, LSTM, and BERT, using Python libraries like TensorFlow and SpaCy.</p>
+            <a href="https://github.com/abhay-lal/ResumeParserClassifier" class="view-button" target="_blank" rel="noopener noreferrer">View Project</a>
+          </div>
+
+          <div class="project-card technical" data-category="technical" data-aos="fade-up" data-aos-delay="1100">
+            <img src="assets/healthcare-ml.jpg" alt="Healthcare ML Optimization Mockup" class="project-image">
+            <h3>Role of Machine Learning Approaches in Optimization of AI-Based Industry 4.0 Healthcare Management Systems</h3>
+            <p>Researched ML approaches to enhance AI-based healthcare systems, focusing on accuracy in medicine prescription and disease detection, integrating compression and optimization for improved performance.</p>
+            <a href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781003317456-9/role-machine-learning-approaches-optimization-ai-based-industry-4-0-healthcare-management-systems-amogh-shukla-gautam-chettiar-vinit-juneja-sonakshi-singh" class="view-button" target="_blank" rel="noopener noreferrer">View Project</a>
+          </div>
+
+          <div class="project-card technical" data-category="technical" data-aos="fade-up" data-aos-delay="1200">
+            <img src="assets/iot-optimization.jpg" alt="IoT Optimization for Smart Cities Mockup" class="project-image">
+            <h3>Optimization-Based Data Science for an IoT Service Applicable in Smart Cities</h3>
+            <p>Developed an optimized dataset using PSO techniques for IoT services in smart cities, improving prediction performance and decision-making efficiency with simulations for reduced time and enhanced accuracy.</p>
+            <a href="https://www.igi-global.com/gateway/chapter/318826" class="view-button" target="_blank" rel="noopener noreferrer">View Project</a>
+          </div>
+
+          
+
+          
+        </div>
+        <button class="load-more" data-aos="fade-up" data-aos-delay="1400">Load More</button>
+      </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div class="project-modal" id="project-modal">
+      <div class="modal-content">
+        <span class="close-modal">×</span>
+        <img src="" alt="Project Detail" class="modal-image">
+        <h2 class="modal-title"></h2>
+        <p class="modal-description"></p>
+        <button class="contact-button">Contact Me</button>
+        <button class="prev-project"><</button>
+        <button class="next-project">></button>
+      </div>
+    </div>
+
+    <!-- Contact Popup -->
+    <div class="popup-overlay" id="popup-overlay"></div>
+    <div id="contact-popup" class="contact-popup">
+      <span class="close-popup">×</span>
+      <div class="contact-methods">
+        <a href="mailto:vj2269@columbia.edu" class="contact-card">
+          <i class="fa-solid fa-envelope"></i>
+          <span>Email</span>
+          <p>vj2269@columbia.edu</p>
+        </a>
+        <a href="https://calendly.com/vinitjuneja" target="_blank" class="contact-card">
+          <i class="fa-solid fa-calendar"></i>
+          <span>Schedule a Call</span>
+          <p>Book a 15-min chat</p>
+        </a>
+        <a href="tel:+9089525914" class="contact-card">
+          <i class="fa-solid fa-phone"></i>
+          <span>Phone</span>
+          <p>+1 (908) 9525914</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="resume-modal-overlay" id="resume-modal-overlay">
+    <div class="resume-modal">
+      <div class="resume-modal-header">
+        <div class="resume-title">
+          <i class="fa-regular fa-file-pdf"></i>
+          <span>Resume Preview</span>
+        </div>
+        <div class="resume-actions">
+          <a href="assets/Vinit_PM_Tech.pdf" download class="download-action" title="Download Resume">
+            <i class="fa-solid fa-download"></i>
+          </a>
+          <a href="assets/Vinit_PM_Tech.pdf" target="_blank" class="open-action" title="Open in New Tab">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+          <button class="close-resume-modal" title="Close">&times;</button>
+        </div>
+      </div>
+      <div class="resume-modal-content">
+        <object id="resume-object" data="assets/Vinit_PM_Tech.pdf" type="application/pdf" width="100%" height="100%">
+          <iframe id="resume-iframe" src="assets/Vinit_PM_Tech.pdf" title="Resume Preview"></iframe>
+        </object>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-cv-wrapper">
+    <a
+      href="assets/Vinit_PM_Tech.pdf"
+      class="cv-floating-button"
+      download
+      aria-label="Download CV"
+    >
+      <i class="fa-solid fa-file-pdf"></i>
+      <span class="button-text">Download CV</span>
+    </a>
+  
+    <!-- Eye icon (calls openResumePreview on click) -->
+    <div class="footer-eye-btn" onclick="openResumePreview()" title="Preview CV">
+      <i class="fa-regular fa-eye"></i>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="projects.js"></script>
+  <script src="script.js"></script>
+  <script src="chat.js"></script>
+  <script src="cv-button.js"></script>
+  <script>
+    function openResumePreview() {
+      const resumeModalOverlay = document.getElementById('resume-modal-overlay');
+      const resumeIframe = document.getElementById('resume-iframe');
+      
+      if (resumeIframe && resumeModalOverlay) {
+        resumeIframe.src = 'assets/Vinit_PM_Tech.pdf';
+        resumeModalOverlay.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+  </script>
+</body>
+</html>
