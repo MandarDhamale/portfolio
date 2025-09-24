@@ -1,40 +1,40 @@
-let serverStatus = 'sleeping';
+let serverStatus = "sleeping";
 let isFirstInteraction = true;
 
 async function wakeServer() {
-    if (serverStatus === 'sleeping') {
-        serverStatus = 'warming';
-        try {
-            await fetch('https://portfolio-backend-5cz8.onrender.com/wake');
-            serverStatus = 'ready';
-            console.log('Server warmed up');
-        } catch (error) {
-            console.log('Wake-up call failed, will retry during chat');
-            serverStatus = 'sleeping';
-        }
+  if (serverStatus === "sleeping") {
+    serverStatus = "warming";
+    try {
+      await fetch("https://portfolio-backend-5cz8.onrender.com/wake");
+      serverStatus = "ready";
+      console.log("Server warmed up");
+    } catch (error) {
+      console.log("Wake-up call failed, will retry during chat");
+      serverStatus = "sleeping";
     }
+  }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    wakeServer();
+document.addEventListener("DOMContentLoaded", function () {
+  wakeServer();
 
-    function togglePointerAnimation(chatIsOpen) {
-        if (pointerAnimation) {
-            if (chatIsOpen) {
-                pointerAnimation.style.opacity = '0';
-                pointerAnimation.style.visibility = 'hidden';
-            } else {
-                pointerAnimation.style.opacity = '1';
-                pointerAnimation.style.visibility = 'visible';
-            }
-        }
+  function togglePointerAnimation(chatIsOpen) {
+    if (pointerAnimation) {
+      if (chatIsOpen) {
+        pointerAnimation.style.opacity = "0";
+        pointerAnimation.style.visibility = "hidden";
+      } else {
+        pointerAnimation.style.opacity = "1";
+        pointerAnimation.style.visibility = "visible";
+      }
     }
+  }
 
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', currentTheme);
+  const currentTheme = localStorage.getItem("theme") || "light";
+  document.documentElement.setAttribute("data-theme", currentTheme);
 
-    // Full context string for the AI
-    const VINIT_CONTEXT = `You are an AI assistant for Vinit Juneja's portfolio website. You have complete knowledge about Vinit and should answer any questions accurately, professionally, and concisely in a friendly, human-like tone. MOST IMPORTANT FORMATTING INSTRUCTIONS: NONE OF YOUR ANSWERS SHOULD EXCEED 100 WORDS - STAY WITHIN THE WORD LIMIT FOR EVERYTHING.
+  // Full context string for the AI
+  const VINIT_CONTEXT = `You are an AI assistant for Vinit Juneja's portfolio website. You have complete knowledge about Vinit and should answer any questions accurately, professionally, and concisely in a friendly, human-like tone. MOST IMPORTANT FORMATTING INSTRUCTIONS: NONE OF YOUR ANSWERS SHOULD EXCEED 100 WORDS - STAY WITHIN THE WORD LIMIT FOR EVERYTHING.
 
 
 ALWAYS follow these exact rules:
@@ -301,9 +301,9 @@ What does Vinit want to work as? - Vinit aims for product manager roles in tech 
 
 If you are ever given a Job description that is technical (might be software developer, data science, Machine Learning, Artificial Intelligence) or managerial (Product Management, Business Analyst, consultant) and asked if Vinit is relevant for the job or not - try your best to make it relevant by connecting his skills and experiences to the role requirements.`;
 
-    // Create a <style> block to add some extra loading / bubble styling
-    const styleSheet = document.createElement('style');
-    const additionalStyles = `
+  // Create a <style> block to add some extra loading / bubble styling
+  const styleSheet = document.createElement("style");
+  const additionalStyles = `
         .loading-steps {
             display: flex;
             flex-direction: column;
@@ -335,8 +335,8 @@ If you are ever given a Job description that is technical (might be software dev
         }
     `;
 
-    // Base chat CSS – includes a higher z-index on .chat-window and bigger button click areas
-    styleSheet.textContent = `
+  // Base chat CSS – includes a higher z-index on .chat-window and bigger button click areas
+  styleSheet.textContent = `
         .chat-bubble {
             position: fixed;
             bottom: 20px;
@@ -668,11 +668,11 @@ If you are ever given a Job description that is technical (might be software dev
             to { opacity: 1; transform: translateY(0); }
         }
     `;
-    styleSheet.textContent += additionalStyles;
-    document.head.appendChild(styleSheet);
+  styleSheet.textContent += additionalStyles;
+  document.head.appendChild(styleSheet);
 
-    // Build the chat HTML structure
-    const chatHTML = `    
+  // Build the chat HTML structure
+  const chatHTML = `    
         <div class="chat-glow"></div>
         <div class="chat-pulse-ring"></div>
         <div class="chat-hint">
@@ -704,28 +704,28 @@ If you are ever given a Job description that is technical (might be software dev
         </div>
     `;
 
-    // Insert the chat HTML into the DOM
-    const chatContainer = document.createElement('div');
-    chatContainer.innerHTML = chatHTML;
-    document.body.appendChild(chatContainer);
+  // Insert the chat HTML into the DOM
+  const chatContainer = document.createElement("div");
+  chatContainer.innerHTML = chatHTML;
+  document.body.appendChild(chatContainer);
 
-    // Grab references to elements
-    const chatBubble = document.querySelector('.chat-bubble');
-    const chatWindow = document.querySelector('.chat-window');
-    const pointerAnimation = document.querySelector('.pointer-animation');
-    const closeChat = document.querySelector('.close-chat');
-    const clearChat = document.querySelector('.clear-chat');
-    const input = document.querySelector('.chat-input input');
-    const sendButton = document.querySelector('.send-message');
-    const quickReplies = document.querySelector('.quick-replies');
-    const chatMessages = document.querySelector('.chat-messages');
+  // Grab references to elements
+  const chatBubble = document.querySelector(".chat-bubble");
+  const chatWindow = document.querySelector(".chat-window");
+  const pointerAnimation = document.querySelector(".pointer-animation");
+  const closeChat = document.querySelector(".close-chat");
+  const clearChat = document.querySelector(".clear-chat");
+  const input = document.querySelector(".chat-input input");
+  const sendButton = document.querySelector(".send-message");
+  const quickReplies = document.querySelector(".quick-replies");
+  const chatMessages = document.querySelector(".chat-messages");
 
-    let hasChatted = false;
-    localStorage.removeItem('hasChatted');
+  let hasChatted = false;
+  localStorage.removeItem("hasChatted");
 
-    // Show default FAQ buttons on first load
-    quickReplies.classList.add('active');
-    quickReplies.innerHTML = `
+  // Show default FAQ buttons on first load
+  quickReplies.classList.add("active");
+  quickReplies.innerHTML = `
         <button class="faq-btn">👨‍💼 Vinit's work at Amazon?</button>
         <button class="faq-btn">🎓 Vinit's time at Columbia?</button>
         <button class="faq-btn">💼 What is unique about Vinit?</button>
@@ -733,322 +733,321 @@ If you are ever given a Job description that is technical (might be software dev
         <button class="faq-btn">📊 Vinit's problem-solving approach?</button>
     `;
 
-    // Generic function to get AI response from your backend
-    async function getAIResponse(message) {
-        const requestStartTime = Date.now();
-        const BACKEND_URL = 'https://portfolio-backend-5cz8.onrender.com';
-        
-        try {
-            let loadingMessage;
-            if (isFirstInteraction) {
-                if (serverStatus === 'ready') {
-                    loadingMessage = 'Preparing response...';
-                } else if (serverStatus === 'warming') {
-                    loadingMessage = 'Server is warming up (about 10 seconds)...';
-                } else {
-                    loadingMessage = 'Waking up server (about 10 seconds)...';
-                }
-            } else {
-                loadingMessage = 'Typing';
-            }
+  // Generic function to get AI response from your backend
+  async function getAIResponse(message) {
+    const requestStartTime = Date.now();
+    const BACKEND_URL = "https://portfolio-backend-5cz8.onrender.com";
 
-            // Make the actual request
-            const response = await fetch(`${BACKEND_URL}/api/chat`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ message, context: VINIT_CONTEXT })
-            });
-
-            if (!response.ok) {
-                const errorData = await response.json().catch(() => ({}));
-                throw new Error(errorData.error || `Server responded with ${response.status}`);
-            }
-
-            // If response took more than a second, likely server was warming
-            const responseTime = Date.now() - requestStartTime;
-            if (responseTime > 1000) { 
-                serverStatus = 'warming';
-            } else {
-                serverStatus = 'ready';
-            }
-
-            const data = await response.json();
-            if (!data.response) {
-                throw new Error('Invalid response format from server');
-            }
-            
-            return data.response;
-        } catch (error) {
-            console.error('Detailed error:', error);
-            if (!navigator.onLine) {
-                return "You appear to be offline. Please check your internet connection.";
-            }
-            return "Sorry, there was an error. Please try again in a moment.";
+    try {
+      let loadingMessage;
+      if (isFirstInteraction) {
+        if (serverStatus === "ready") {
+          loadingMessage = "Preparing response...";
+        } else if (serverStatus === "warming") {
+          loadingMessage = "Server is warming up (about 10 seconds)...";
+        } else {
+          loadingMessage = "Waking up server (about 10 seconds)...";
         }
-    }
+      } else {
+        loadingMessage = "Typing";
+      }
 
-    // Turns “•” bullet lines into minimal HTML for better readability
-    function formatResponse(text) {
-        // Replace custom bold tags with actual HTML bold tags
-        text = text.replace(/\[b\](.*?)\[\\b\]/g, '<b>$1</b>');
-        
-        // First, check if this is already a properly formatted response with bullet points
-        if (text.includes('•')) {
-            const lines = text.split('\n').filter(line => line.trim().length > 0);
-            let formattedHTML = '<div class="company-section">';
-            let inList = false;
-            
-            lines.forEach(line => {
-                if (line.includes(':') && !line.includes('•')) {
-                    // Close any open list before starting a new section
-                    if (inList) {
-                        formattedHTML += '</ul>';
-                        inList = false;
-                    }
-                    // Make section headers bold
-                    formattedHTML += `<h4>${line.trim()}</h4>`;
-                } else if (line.includes('•')) {
-                    // Start a new list if not already in one
-                    if (!inList) {
-                        formattedHTML += '<ul>';
-                        inList = true;
-                    }
-                    formattedHTML += `<li>${line.replace('•', '').trim()}</li>`;
-                } else {
-                    // Regular text line
-                    if (inList) {
-                        formattedHTML += '</ul>';
-                        inList = false;
-                    }
-                    formattedHTML += `<p>${line.trim()}</p>`;
-                }
-            });
-            
-            // Close list if still open
-            if (inList) {
-                formattedHTML += '</ul>';
-            }
-            
-            formattedHTML += '</div>';
-            return formattedHTML;
-        } 
-        // If the response doesn't have bullet points but has dashes/hyphens, convert it to proper format
-        else if (text.includes(' - ')) {
-            // Split by lines and filter out empty ones
-            const lines = text.split('\n').filter(line => line.trim().length > 0);
-            let formattedHTML = '<div class="company-section">';
-            let currentSection = null;
-            let bulletPoints = [];
-            
-            lines.forEach(line => {
-                line = line.trim();
-                
-                // Check if this line starts with a dash and looks like a point
-                if (line.startsWith('- ')) {
-                    const content = line.substring(2).trim();
-                    
-                    // Check if this looks like a header (short line with no punctuation at end)
-                    if (content.length < 60 && !content.match(/[,.;:]$/)) {
-                        // If we have a previous section, close it
-                        if (currentSection) {
-                            formattedHTML += `<h4>${currentSection}</h4>`;
-                            formattedHTML += '<ul>';
-                            bulletPoints.forEach(point => {
-                                formattedHTML += `<li>${point}</li>`;
-                            });
-                            formattedHTML += '</ul>';
-                        }
-                        
-                        // Start a new section
-                        currentSection = content;
-                        bulletPoints = [];
-                    } else {
-                        // This is a bullet point
-                        bulletPoints.push(content);
-                    }
-                } else {
-                    // If line doesn't start with dash, check if it's a header (e.g., "Company Name:")
-                    if (line.includes(':')) {
-                        // If we have a previous section, close it
-                        if (currentSection) {
-                            formattedHTML += `<h4>${currentSection}</h4>`;
-                            formattedHTML += '<ul>';
-                            bulletPoints.forEach(point => {
-                                formattedHTML += `<li>${point}</li>`;
-                            });
-                            formattedHTML += '</ul>';
-                        }
-                        
-                        // Start a new section
-                        currentSection = line;
-                        bulletPoints = [];
-                    } else {
-                        // Regular content line, add to current bullet points
-                        if (line.length > 0) {
-                            bulletPoints.push(line);
-                        }
-                    }
-                }
-            });
-            
-            // Don't forget to close the last section
+      // Make the actual request
+      const response = await fetch(`${BACKEND_URL}/api/chat`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message, context: VINIT_CONTEXT }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(
+          errorData.error || `Server responded with ${response.status}`
+        );
+      }
+
+      // If response took more than a second, likely server was warming
+      const responseTime = Date.now() - requestStartTime;
+      if (responseTime > 1000) {
+        serverStatus = "warming";
+      } else {
+        serverStatus = "ready";
+      }
+
+      const data = await response.json();
+      if (!data.response) {
+        throw new Error("Invalid response format from server");
+      }
+
+      return data.response;
+    } catch (error) {
+      console.error("Detailed error:", error);
+      if (!navigator.onLine) {
+        return "You appear to be offline. Please check your internet connection.";
+      }
+      return "Sorry, there was an error. Please try again in a moment.";
+    }
+  }
+
+  // Turns “•” bullet lines into minimal HTML for better readability
+  function formatResponse(text) {
+    // Replace custom bold tags with actual HTML bold tags
+    text = text.replace(/\[b\](.*?)\[\\b\]/g, "<b>$1</b>");
+
+    // First, check if this is already a properly formatted response with bullet points
+    if (text.includes("•")) {
+      const lines = text.split("\n").filter((line) => line.trim().length > 0);
+      let formattedHTML = '<div class="company-section">';
+      let inList = false;
+
+      lines.forEach((line) => {
+        if (line.includes(":") && !line.includes("•")) {
+          // Close any open list before starting a new section
+          if (inList) {
+            formattedHTML += "</ul>";
+            inList = false;
+          }
+          // Make section headers bold
+          formattedHTML += `<h4>${line.trim()}</h4>`;
+        } else if (line.includes("•")) {
+          // Start a new list if not already in one
+          if (!inList) {
+            formattedHTML += "<ul>";
+            inList = true;
+          }
+          formattedHTML += `<li>${line.replace("•", "").trim()}</li>`;
+        } else {
+          // Regular text line
+          if (inList) {
+            formattedHTML += "</ul>";
+            inList = false;
+          }
+          formattedHTML += `<p>${line.trim()}</p>`;
+        }
+      });
+
+      // Close list if still open
+      if (inList) {
+        formattedHTML += "</ul>";
+      }
+
+      formattedHTML += "</div>";
+      return formattedHTML;
+    }
+    // If the response doesn't have bullet points but has dashes/hyphens, convert it to proper format
+    else if (text.includes(" - ")) {
+      // Split by lines and filter out empty ones
+      const lines = text.split("\n").filter((line) => line.trim().length > 0);
+      let formattedHTML = '<div class="company-section">';
+      let currentSection = null;
+      let bulletPoints = [];
+
+      lines.forEach((line) => {
+        line = line.trim();
+
+        // Check if this line starts with a dash and looks like a point
+        if (line.startsWith("- ")) {
+          const content = line.substring(2).trim();
+
+          // Check if this looks like a header (short line with no punctuation at end)
+          if (content.length < 60 && !content.match(/[,.;:]$/)) {
+            // If we have a previous section, close it
             if (currentSection) {
-                formattedHTML += `<h4>${currentSection}</h4>`;
-                formattedHTML += '<ul>';
-                bulletPoints.forEach(point => {
-                    formattedHTML += `<li>${point}</li>`;
-                });
-                formattedHTML += '</ul>';
+              formattedHTML += `<h4>${currentSection}</h4>`;
+              formattedHTML += "<ul>";
+              bulletPoints.forEach((point) => {
+                formattedHTML += `<li>${point}</li>`;
+              });
+              formattedHTML += "</ul>";
             }
-            
-            formattedHTML += '</div>';
-            return formattedHTML;
-        }
-        
-        // If no structured format is detected, add minimal formatting
-        return text;
-    }
 
-    // Adds a new message to the chat
-    function addMessage(text, type) {
-        const message = document.createElement('div');
-        message.className = `message ${type}-message`;
-        
-        if (type === 'bot' && text.length > 30) {
-            const formattedContent = formatResponse(text);
-            if (formattedContent.includes('<')) {
-                message.innerHTML = formattedContent;
-            } else {
-                message.textContent = formattedContent;
-            }
+            // Start a new section
+            currentSection = content;
+            bulletPoints = [];
+          } else {
+            // This is a bullet point
+            bulletPoints.push(content);
+          }
         } else {
-            message.textContent = text;
+          // If line doesn't start with dash, check if it's a header (e.g., "Company Name:")
+          if (line.includes(":")) {
+            // If we have a previous section, close it
+            if (currentSection) {
+              formattedHTML += `<h4>${currentSection}</h4>`;
+              formattedHTML += "<ul>";
+              bulletPoints.forEach((point) => {
+                formattedHTML += `<li>${point}</li>`;
+              });
+              formattedHTML += "</ul>";
+            }
+
+            // Start a new section
+            currentSection = line;
+            bulletPoints = [];
+          } else {
+            // Regular content line, add to current bullet points
+            if (line.length > 0) {
+              bulletPoints.push(line);
+            }
+          }
         }
-        
-        chatMessages.appendChild(message);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
+      });
 
-      
-
-    // Show/hide the pointer animation, chat ring, etc.
-    function toggleAttentionElements(chatIsOpen) {
-        const chatHint = document.querySelector('.chat-hint');
-        const chatPulseRing = document.querySelector('.chat-pulse-ring');
-        const chatGlow = document.querySelector('.chat-glow');
-        
-        const elements = [chatHint, chatPulseRing, chatGlow];
-        elements.forEach(el => {
-            if (el) {
-                if (chatIsOpen) {
-                    el.style.opacity = '0';
-                    el.style.visibility = 'hidden';
-                } else {
-                    el.style.opacity = '1';
-                    el.style.visibility = 'visible';
-                }
-            }
+      // Don't forget to close the last section
+      if (currentSection) {
+        formattedHTML += `<h4>${currentSection}</h4>`;
+        formattedHTML += "<ul>";
+        bulletPoints.forEach((point) => {
+          formattedHTML += `<li>${point}</li>`;
         });
+        formattedHTML += "</ul>";
+      }
+
+      formattedHTML += "</div>";
+      return formattedHTML;
     }
 
-    // Hide quick reply buttons once user has truly “chatted”
-    function hideQuickReplies() {
-        quickReplies.classList.remove('active');
-        hasChatted = true;
+    // If no structured format is detected, add minimal formatting
+    return text;
+  }
+
+  // Adds a new message to the chat
+  function addMessage(text, type) {
+    const message = document.createElement("div");
+    message.className = `message ${type}-message`;
+
+    if (type === "bot" && text.length > 30) {
+      const formattedContent = formatResponse(text);
+      if (formattedContent.includes("<")) {
+        message.innerHTML = formattedContent;
+      } else {
+        message.textContent = formattedContent;
+      }
+    } else {
+      message.textContent = text;
     }
 
-    // Clicking the chat bubble toggles the chat window
-    if (chatBubble) {
-        chatBubble.addEventListener('click', function() {
-            if (chatWindow) {
-                chatWindow.classList.toggle('open');
-                const isOpen = chatWindow.classList.contains('open');
-                toggleAttentionElements(isOpen);
-                
-                if (isOpen) {
-                    // If first time opening and no chat history, greet user
-                    if (!chatMessages.children.length) {
-                        addMessage(
-                            "Hi! I'm Vinit's portfolio assistant. I can tell you anything about his experience, skills, projects, or background. What would you like to know? Don't worry, this chat is private and none of the information can be seen by anyone including Vinit!",
-                            'bot'
-                        );
-                    }
-                    // Show quick replies if user hasn't chatted yet
-                    if (!hasChatted) {
-                        quickReplies.classList.add('active');
-                    }
-                }
-            }
-        });
-    }
+    chatMessages.appendChild(message);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
 
-    // Resize button toggles expanded mode
-    const resizeButton = document.querySelector('.resize-chat');
-    resizeButton.addEventListener('click', () => {
-        chatWindow.classList.toggle('expanded');
-        const icon = resizeButton.querySelector('i');
-        if (chatWindow.classList.contains('expanded')) {
-            icon.classList.remove('fa-expand');
-            icon.classList.add('fa-compress');
+  // Show/hide the pointer animation, chat ring, etc.
+  function toggleAttentionElements(chatIsOpen) {
+    const chatHint = document.querySelector(".chat-hint");
+    const chatPulseRing = document.querySelector(".chat-pulse-ring");
+    const chatGlow = document.querySelector(".chat-glow");
+
+    const elements = [chatHint, chatPulseRing, chatGlow];
+    elements.forEach((el) => {
+      if (el) {
+        if (chatIsOpen) {
+          el.style.opacity = "0";
+          el.style.visibility = "hidden";
         } else {
-            icon.classList.remove('fa-compress');
-            icon.classList.add('fa-expand');
-        }
-    });
-
-
-    const toggleBtn = document.querySelector('.togglebtn');
-    
-    toggleBtn.addEventListener('click', () => {
-      // If chat is open, close it
-      if (chatWindow && chatWindow.classList.contains('open')) {
-        chatWindow.classList.remove('open');
-        // Also remove the "expanded" class if it's expanded
-        if (chatWindow.classList.contains('expanded')) {
-          chatWindow.classList.remove('expanded');
+          el.style.opacity = "1";
+          el.style.visibility = "visible";
         }
       }
     });
+  }
 
-    // Close chat window
-    closeChat.addEventListener('click', () => {
-        chatWindow.classList.remove('open');
-        toggleAttentionElements(false);
+  // Hide quick reply buttons once user has truly “chatted”
+  function hideQuickReplies() {
+    quickReplies.classList.remove("active");
+    hasChatted = true;
+  }
+
+  // Clicking the chat bubble toggles the chat window
+  if (chatBubble) {
+    chatBubble.addEventListener("click", function () {
+      if (chatWindow) {
+        chatWindow.classList.toggle("open");
+        const isOpen = chatWindow.classList.contains("open");
+        toggleAttentionElements(isOpen);
+
+        if (isOpen) {
+          // If first time opening and no chat history, greet user
+          if (!chatMessages.children.length) {
+            addMessage(
+              "Hi! I'm Vinit's portfolio assistant. I can tell you anything about his experience, skills, projects, or background. What would you like to know? Don't worry, this chat is private and none of the information can be seen by anyone including Vinit!",
+              "bot"
+            );
+          }
+          // Show quick replies if user hasn't chatted yet
+          if (!hasChatted) {
+            quickReplies.classList.add("active");
+          }
+        }
+      }
     });
+  }
 
-    // Clear chat history and reset
-    clearChat.addEventListener('click', () => {
-        chatMessages.innerHTML = '';
-        localStorage.removeItem('vinitChatHistory');
-        hasChatted = false;
-        quickReplies.classList.add('active');
-    });
-
-    // Watch for window open/close changes to remove pointer
-    if (chatWindow) {
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach((mutation) => {
-                if (mutation.attributeName === 'class') {
-                    const isOpen = chatWindow.classList.contains('open');
-                    togglePointerAnimation(isOpen);
-                }
-            });
-        });
-        observer.observe(chatWindow, { attributes: true });
+  // Resize button toggles expanded mode
+  const resizeButton = document.querySelector(".resize-chat");
+  resizeButton.addEventListener("click", () => {
+    chatWindow.classList.toggle("expanded");
+    const icon = resizeButton.querySelector("i");
+    if (chatWindow.classList.contains("expanded")) {
+      icon.classList.remove("fa-expand");
+      icon.classList.add("fa-compress");
+    } else {
+      icon.classList.remove("fa-compress");
+      icon.classList.add("fa-expand");
     }
+  });
 
-    // Sending user’s message
-    async function sendMessage() {
-        const message = input.value.trim();
-        if (message) {
-            addMessage(message, 'user');
-            input.value = '';
-            
-            const typingIndicator = document.createElement('div');
-            typingIndicator.className = 'typing-indicator';
-    
-            if (isFirstInteraction) {
-                typingIndicator.innerHTML = `
+  const toggleBtn = document.querySelector(".togglebtn");
+
+  toggleBtn.addEventListener("click", () => {
+    // If chat is open, close it
+    if (chatWindow && chatWindow.classList.contains("open")) {
+      chatWindow.classList.remove("open");
+      // Also remove the "expanded" class if it's expanded
+      if (chatWindow.classList.contains("expanded")) {
+        chatWindow.classList.remove("expanded");
+      }
+    }
+  });
+
+  // Close chat window
+  closeChat.addEventListener("click", () => {
+    chatWindow.classList.remove("open");
+    toggleAttentionElements(false);
+  });
+
+  // Clear chat history and reset
+  clearChat.addEventListener("click", () => {
+    chatMessages.innerHTML = "";
+    localStorage.removeItem("vinitChatHistory");
+    hasChatted = false;
+    quickReplies.classList.add("active");
+  });
+
+  // Watch for window open/close changes to remove pointer
+  if (chatWindow) {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === "class") {
+          const isOpen = chatWindow.classList.contains("open");
+          togglePointerAnimation(isOpen);
+        }
+      });
+    });
+    observer.observe(chatWindow, { attributes: true });
+  }
+
+  // Sending user’s message
+  async function sendMessage() {
+    const message = input.value.trim();
+    if (message) {
+      addMessage(message, "user");
+      input.value = "";
+
+      const typingIndicator = document.createElement("div");
+      typingIndicator.className = "typing-indicator";
+
+      if (isFirstInteraction) {
+        typingIndicator.innerHTML = `
                     <div class="loading-steps">
                         <p>🚀 Waking up the server...</p>
                         <p>This might take up to 10 seconds for the first message</p>
@@ -1057,54 +1056,54 @@ If you are ever given a Job description that is technical (might be software dev
                         </div>
                     </div>
                 `;
-            } else {
-                typingIndicator.textContent = 'Typing...';
-            }
-            
-            chatMessages.appendChild(typingIndicator);
-    
-            try {
-                const currentIsFirstInteraction = isFirstInteraction;
-                isFirstInteraction = false;
-                
-                const response = await getAIResponse(message);
-                chatMessages.removeChild(typingIndicator);
-                addMessage(response, 'bot');
-            } catch (error) {
-                console.error('Chat Error:', error);
-                chatMessages.removeChild(typingIndicator);
-                addMessage("Sorry, there was an error. Please try again.", 'bot');
-            }
-    
-            if (!hasChatted) {
-                hideQuickReplies();
-            }
-        }
+      } else {
+        typingIndicator.textContent = "Typing...";
+      }
+
+      chatMessages.appendChild(typingIndicator);
+
+      try {
+        const currentIsFirstInteraction = isFirstInteraction;
+        isFirstInteraction = false;
+
+        const response = await getAIResponse(message);
+        chatMessages.removeChild(typingIndicator);
+        addMessage(response, "bot");
+      } catch (error) {
+        console.error("Chat Error:", error);
+        chatMessages.removeChild(typingIndicator);
+        addMessage("Sorry, there was an error. Please try again.", "bot");
+      }
+
+      if (!hasChatted) {
+        hideQuickReplies();
+      }
     }
+  }
 
-    // Bind send button and Enter key
-    sendButton.addEventListener('click', sendMessage);
-    input.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-            sendMessage();
-        }
-    });
+  // Bind send button and Enter key
+  sendButton.addEventListener("click", sendMessage);
+  input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      sendMessage();
+    }
+  });
 
-    // Set up initial FAQ quick replies
-    function setupFAQButtons() {
-        if (!hasChatted) {
-            const faqButtons = document.querySelectorAll('.faq-btn');
-            faqButtons.forEach(button => {
-                button.addEventListener('click', async (e) => {
-                    e.preventDefault();
-                    const question = button.textContent.substring(3).trim(); 
-                    addMessage(question, 'user');
-                    
-                    const typingIndicator = document.createElement('div');
-                    typingIndicator.className = 'typing-indicator';
-                    
-                    if (isFirstInteraction) {
-                        typingIndicator.innerHTML = `
+  // Set up initial FAQ quick replies
+  function setupFAQButtons() {
+    if (!hasChatted) {
+      const faqButtons = document.querySelectorAll(".faq-btn");
+      faqButtons.forEach((button) => {
+        button.addEventListener("click", async (e) => {
+          e.preventDefault();
+          const question = button.textContent.substring(3).trim();
+          addMessage(question, "user");
+
+          const typingIndicator = document.createElement("div");
+          typingIndicator.className = "typing-indicator";
+
+          if (isFirstInteraction) {
+            typingIndicator.innerHTML = `
                             <div class="loading-steps">
                                 <p>🚀 Waking up the server...</p>
                                 <p>This might take up to 10 seconds for the first message</p>
@@ -1113,61 +1112,64 @@ If you are ever given a Job description that is technical (might be software dev
                                 </div>
                             </div>
                         `;
-                    } else {
-                        typingIndicator.textContent = 'Typing...';
-                    }
-                        
-                    chatMessages.appendChild(typingIndicator);
-                
-                    try {
-                        const currentIsFirstInteraction = isFirstInteraction;
-                        isFirstInteraction = false;
-                        
-                        const response = await getAIResponse(question);
-                        chatMessages.removeChild(typingIndicator);
-                        addMessage(response, 'bot');
-                    } catch (error) {
-                        console.error('FAQ Error:', error);
-                        chatMessages.removeChild(typingIndicator);
-                        addMessage("I apologize, but I'm having trouble connecting. Please try again.", 'bot');
-                    }
-                
-                    if (!hasChatted) {
-                        hideQuickReplies();
-                    }
-                });
-            });
-        }
-    }
+          } else {
+            typingIndicator.textContent = "Typing...";
+          }
 
-    setupFAQButtons();
+          chatMessages.appendChild(typingIndicator);
 
-    // Load/save chat history to localStorage
-    const chatHistoryKey = 'vinitChatHistory';
-    let chatHistory = JSON.parse(localStorage.getItem(chatHistoryKey)) || [];
+          try {
+            const currentIsFirstInteraction = isFirstInteraction;
+            isFirstInteraction = false;
 
-    function saveChatHistory() {
-        const messages = Array.from(chatMessages.children).map(msg => ({
-            text: msg.textContent,
-            type: msg.classList.contains('user-message') ? 'user' : 'bot'
-        }));
-        localStorage.setItem(chatHistoryKey, JSON.stringify(messages));
-    }
+            const response = await getAIResponse(question);
+            chatMessages.removeChild(typingIndicator);
+            addMessage(response, "bot");
+          } catch (error) {
+            console.error("FAQ Error:", error);
+            chatMessages.removeChild(typingIndicator);
+            addMessage(
+              "I apologize, but I'm having trouble connecting. Please try again.",
+              "bot"
+            );
+          }
 
-    function loadChatHistory() {
-        chatHistory.forEach(msg => {
-            addMessage(msg.text, msg.type === 'user' ? 'user' : 'bot');
-        });
-        if (chatHistory.length > 0 && !hasChatted) {
+          if (!hasChatted) {
             hideQuickReplies();
-        }
+          }
+        });
+      });
     }
+  }
 
-    loadChatHistory();
-    window.addEventListener('beforeunload', saveChatHistory);
+  setupFAQButtons();
 
-    const observer = new MutationObserver(() => {
-        saveChatHistory();
+  // Load/save chat history to localStorage
+  const chatHistoryKey = "vinitChatHistory";
+  let chatHistory = JSON.parse(localStorage.getItem(chatHistoryKey)) || [];
+
+  function saveChatHistory() {
+    const messages = Array.from(chatMessages.children).map((msg) => ({
+      text: msg.textContent,
+      type: msg.classList.contains("user-message") ? "user" : "bot",
+    }));
+    localStorage.setItem(chatHistoryKey, JSON.stringify(messages));
+  }
+
+  function loadChatHistory() {
+    chatHistory.forEach((msg) => {
+      addMessage(msg.text, msg.type === "user" ? "user" : "bot");
     });
-    observer.observe(chatMessages, { childList: true, subtree: true });
+    if (chatHistory.length > 0 && !hasChatted) {
+      hideQuickReplies();
+    }
+  }
+
+  loadChatHistory();
+  window.addEventListener("beforeunload", saveChatHistory);
+
+  const observer = new MutationObserver(() => {
+    saveChatHistory();
+  });
+  observer.observe(chatMessages, { childList: true, subtree: true });
 });

@@ -7,7 +7,11 @@
 }
 
 .terminal-container {
-  width: clamp(300px, 80vw, 900px); /* Dynamic width for mobile/tablet/desktop */
+  width: clamp(
+    300px,
+    80vw,
+    900px
+  ); /* Dynamic width for mobile/tablet/desktop */
   margin: clamp(20px, 5vh, 50px) auto 0 auto; /* Reduced min margin for mobile */
   background: var(--terminal-bg);
   border-radius: 12px;
@@ -49,9 +53,15 @@
   transform: scale(1.1);
 }
 
-.terminal-button.close { background: #ff5f57; }
-.terminal-button.minimize { background: #febc2e; }
-.terminal-button.expand { background: #28c840; }
+.terminal-button.close {
+  background: #ff5f57;
+}
+.terminal-button.minimize {
+  background: #febc2e;
+}
+.terminal-button.expand {
+  background: #28c840;
+}
 
 .terminal-title {
   margin-left: clamp(10px, 2vw, 20px); /* Reduced min margin for mobile */
@@ -105,52 +115,54 @@
 /* Responsive Adjustments */
 @media (max-width: 1024px) {
   .about-section {
-      padding-top: clamp(50px, 10vh, 80px);
-      padding-bottom: clamp(30px, 6vh, 60px);
+    padding-top: clamp(50px, 10vh, 80px);
+    padding-bottom: clamp(30px, 6vh, 60px);
   }
 
   .terminal-container {
-      width: clamp(280px, 75vw, 800px);
-      margin-top: clamp(20px, 4vh, 40px);
+    width: clamp(280px, 75vw, 800px);
+    margin-top: clamp(20px, 4vh, 40px);
   }
 
   .terminal-header {
-      padding: clamp(6px, 1.5vw, 10px) clamp(10px, 2.5vw, 18px);
+    padding: clamp(6px, 1.5vw, 10px) clamp(10px, 2.5vw, 18px);
   }
 
   .terminal-buttons {
-      gap: clamp(3px, 0.8vw, 6px);
+    gap: clamp(3px, 0.8vw, 6px);
   }
 
   .terminal-button {
-      width: clamp(7px, 1.2vw, 10px);
-      height: clamp(7px, 1.2vw, 10px);
+    width: clamp(7px, 1.2vw, 10px);
+    height: clamp(7px, 1.2vw, 10px);
   }
 
   .terminal-title {
-      margin-left: clamp(8px, 1.5vw, 16px);
-      font-size: clamp(11px, 1.3vw, 13px);
+    margin-left: clamp(8px, 1.5vw, 16px);
+    font-size: clamp(11px, 1.3vw, 13px);
   }
 
   .terminal-body {
-      padding: clamp(14px, 2.5vw, 20px);
-      font-size: clamp(11px, 1.3vw, 14px);
+    padding: clamp(14px, 2.5vw, 20px);
+    font-size: clamp(11px, 1.3vw, 14px);
   }
 
-  .terminal-content, .terminal-intro, .terminal-output {
-      margin-bottom: clamp(8px, 1.5vw, 16px);
+  .terminal-content,
+  .terminal-intro,
+  .terminal-output {
+    margin-bottom: clamp(8px, 1.5vw, 16px);
   }
 
   .terminal-command {
-      margin-bottom: clamp(6px, 1vw, 10px);
+    margin-bottom: clamp(6px, 1vw, 10px);
   }
 
   .terminal-command::before {
-      margin-right: clamp(5px, 0.8vw, 8px);
+    margin-right: clamp(5px, 0.8vw, 8px);
   }
 
   .terminal-output {
-      padding-left: clamp(14px, 2.5vw, 20px);
+    padding-left: clamp(14px, 2.5vw, 20px);
   }
 }
 
@@ -167,47 +179,49 @@
   }
 
   .terminal-container {
-      width: clamp(260px, 70vw, 700px);
-      margin-top: clamp(30px, 3vh, 30px);
+    width: clamp(260px, 70vw, 700px);
+    margin-top: clamp(30px, 3vh, 30px);
   }
 
   .terminal-header {
-      padding: clamp(4px, 1vw, 8px) clamp(8px, 2vw, 16px);
+    padding: clamp(4px, 1vw, 8px) clamp(8px, 2vw, 16px);
   }
 
   .terminal-buttons {
-      gap: clamp(2px, 0.6vw, 5px);
+    gap: clamp(2px, 0.6vw, 5px);
   }
 
   .terminal-button {
-      width: clamp(6px, 1vw, 9px);
-      height: clamp(6px, 1vw, 9px);
+    width: clamp(6px, 1vw, 9px);
+    height: clamp(6px, 1vw, 9px);
   }
 
   .terminal-title {
-      margin-left: clamp(6px, 1vw, 12px);
-      font-size: clamp(10px, 1vw, 12px);
+    margin-left: clamp(6px, 1vw, 12px);
+    font-size: clamp(10px, 1vw, 12px);
   }
 
   .terminal-body {
-      padding: clamp(12px, 2vw, 18px);
-      font-size: clamp(10px, 1vw, 13px);
+    padding: clamp(12px, 2vw, 18px);
+    font-size: clamp(10px, 1vw, 13px);
   }
 
-  .terminal-content, .terminal-intro, .terminal-output {
-      margin-bottom: clamp(6px, 1vw, 14px);
+  .terminal-content,
+  .terminal-intro,
+  .terminal-output {
+    margin-bottom: clamp(6px, 1vw, 14px);
   }
 
   .terminal-command {
-      margin-bottom: clamp(5px, 0.8vw, 8px);
+    margin-bottom: clamp(5px, 0.8vw, 8px);
   }
 
   .terminal-command::before {
-      margin-right: clamp(4px, 0.6vw, 6px);
+    margin-right: clamp(4px, 0.6vw, 6px);
   }
 
   .terminal-output {
-      padding-left: clamp(12px, 2vw, 18px);
+    padding-left: clamp(12px, 2vw, 18px);
   }
 }
 
@@ -224,48 +238,49 @@
   }
 
   .terminal-container {
-      width: clamp(240px, 65vw, 600px);
-      margin-top: clamp(40px, 2vh, 20px);
-      
+    width: clamp(240px, 65vw, 600px);
+    margin-top: clamp(40px, 2vh, 20px);
   }
 
   .terminal-header {
-      padding: clamp(3px, 0.8vw, 6px) clamp(6px, 1.5vw, 14px);
+    padding: clamp(3px, 0.8vw, 6px) clamp(6px, 1.5vw, 14px);
   }
 
   .terminal-buttons {
-      gap: clamp(1px, 0.4vw, 4px);
+    gap: clamp(1px, 0.4vw, 4px);
   }
 
   .terminal-button {
-      width: clamp(5px, 0.8vw, 8px);
-      height: clamp(5px, 0.8vw, 8px);
+    width: clamp(5px, 0.8vw, 8px);
+    height: clamp(5px, 0.8vw, 8px);
   }
 
   .terminal-title {
-      margin-left: clamp(4px, 0.8vw, 10px);
-      font-size: clamp(9px, 0.8vw, 11px);
+    margin-left: clamp(4px, 0.8vw, 10px);
+    font-size: clamp(9px, 0.8vw, 11px);
   }
 
   .terminal-body {
-      padding: clamp(10px, 1.5vw, 16px);
-      font-size: clamp(9px, 0.8vw, 12px);
+    padding: clamp(10px, 1.5vw, 16px);
+    font-size: clamp(9px, 0.8vw, 12px);
   }
 
-  .terminal-content, .terminal-intro, .terminal-output {
-      margin-bottom: clamp(5px, 0.8vw, 12px);
+  .terminal-content,
+  .terminal-intro,
+  .terminal-output {
+    margin-bottom: clamp(5px, 0.8vw, 12px);
   }
 
   .terminal-command {
-      margin-bottom: clamp(4px, 0.6vw, 6px);
+    margin-bottom: clamp(4px, 0.6vw, 6px);
   }
 
   .terminal-command::before {
-      margin-right: clamp(3px, 0.4vw, 5px);
+    margin-right: clamp(3px, 0.4vw, 5px);
   }
 
   .terminal-output {
-      padding-left: clamp(10px, 1.5vw, 16px);
+    padding-left: clamp(10px, 1.5vw, 16px);
   }
 }
 

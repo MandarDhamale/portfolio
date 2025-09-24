@@ -1,20 +1,51 @@
-  <!DOCTYPE html>
-  <html lang="en" data-theme = "light">
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mandar Dhamale - Portfolio</title>
     <script>
-      const theme = localStorage.getItem('theme') || 'light';
-      document.documentElement.setAttribute('data-theme', theme);
+      const theme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", theme);
     </script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
-    
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Ensure the hero container is column by default */
+      .hero-logos {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.5rem;
+      }
+
+      /* Mobile view: move logos below hero content */
+      @media (max-width: 768px) {
+        .container {
+          display: flex;
+          flex-direction: column-reverse; /* logos go below content */
+          align-items: center;
+        }
+
+        .hero-logos {
+          margin-top: 1rem; /* space above logos after they move down */
+          margin-bottom: 0; /* remove original bottom margin */
+        }
+      }
+    </style>
   </head>
 
   <body class="home">
@@ -25,7 +56,7 @@
       <!-- Header -->
       <header>
         <div class="logo">
-          <a class='logo-text' href='/'>Mandar Dhamale</a>
+          <a class="logo-text" href="/">Mandar Dhamale</a>
         </div>
         <nav>
           <div class="togglebtn">
@@ -34,31 +65,55 @@
             <span></span>
           </div>
           <ul class="navlinks">
-            <li><a href='/'>Home</a></li>
-            <li><a href='/about'>About</a></li>
-            <li><a href='/work'>Work</a></li>
-            <li><a href='/education'>Education</a></li>
-            <li><a href='/certifications'>Certifications</a></li>
-            <li><a href='/projects'>Projects</a></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/work">Work</a></li>
+            <li><a href="/education">Education</a></li>
+            <li><a href="/certifications">Certifications</a></li>
+            <li><a href="/projects">Projects</a></li>
             <li><a href="#" id="nav-contact">Contact</a></li>
           </ul>
           <div class="theme-switch">
             <input type="checkbox" id="theme-toggle" />
             <label for="theme-toggle" class="theme-label">
-                <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                </svg>
-                <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                </svg>
+              <svg
+                class="sun-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <svg
+                class="moon-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                ></path>
+              </svg>
             </label>
           </div>
         </nav>
@@ -67,31 +122,91 @@
       <!-- Hero Section -->
       <section class="hero-wrapper">
         <div class="container">
+          <!-- Logos row: College & Previous Company -->
+          <div class="hero-logos">
+            <img
+              src="assets/ivalua.png"
+              style="height: 3rem; width: auto; max-width: 100%"
+              alt="Ivalua Logo"
+            />
+            <img
+              src="assets/usf.png"
+              style="height: 3rem; width: auto; max-width: 100%"
+              alt="USF Logo"
+            />
+            <img
+              src="assets/sppu.png"
+              style="height: 3rem; width: auto; max-width: 100%"
+              alt="USF Logo"
+            />
+            <img
+              src="assets/pes.jpeg"
+              style="height: 3rem; width: auto; max-width: 100%"
+              alt="USF Logo"
+            />
+                        <img
+              src="assets/ijrar.png"
+              style="height: 3rem; width: auto; max-width: 100%"
+              alt="USF Logo"
+            />
+                                    <img
+              src="assets/udemy.png"
+              style="height: 3rem; width: auto; max-width: 100%"
+              alt="USF Logo"
+            />
+          </div>
+
           <div class="hero-text">
             <div class="hero-image-container">
-              <img src="assets/mandar-headshot.jpg" alt="Mandar Dhamale" class="profile-img" />
+              <img
+                src="assets/mandar-headshot.jpg"
+                alt="Mandar Dhamale"
+                class="profile-img"
+              />
             </div>
             <div class="hero-content">
               <h5>Hi, I'm <span class="input"></span></h5>
               <h1>Mandar Dhamale</h1>
               <p>
-                Turning complex challenges into efficient, reliable, and scalable software , with a passion for building intelligent, AI-powered features.
+                Turning complex challenges into efficient, reliable, and
+                scalable software , with a passion for building intelligent,
+                AI-powered features.
               </p>
               <div class="btn-group">
-                <!-- Replace your current Download CV button with this -->
-                <div class="btn-with-eye" style="position: relative; display: inline-block;">
-                  <a href="assets/Resume - Mandar Dhamale.pdf" class="btn active" download>Download CV</a>
-                  <div class="eye-preview-btn" onclick="openResumePreview()">                  
-                    <i class="fa-regular fa-eye" style="font-size: 14px; color: #333;"></i>
+                <div
+                  class="btn-with-eye"
+                  style="position: relative; display: inline-block"
+                >
+                  <a
+                    href="assets/Resume - Mandar Dhamale.pdf"
+                    class="btn active"
+                    download
+                    >Download CV</a
+                  >
+                  <div class="eye-preview-btn" onclick="openResumePreview()">
+                    <i
+                      class="fa-regular fa-eye"
+                      style="font-size: 14px; color: #333"
+                    ></i>
                   </div>
                 </div>
                 <a href="#" class="btn" id="contact-btn">Contact</a>
               </div>
               <div class="social">
-                <a href="https://instagram.com/iamvinitjuneja" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://linkedin.com/in/vinitjuneja" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://www.researchgate.net/profile/Vinit-Juneja" target="_blank"><i class="fa-brands fa-researchgate"></i></a>
-                <a href="mailto:vj2269@columbia.edu"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://instagram.com/iamvinitjuneja" target="_blank"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+                <a href="https://linkedin.com/in/vinitjuneja" target="_blank"
+                  ><i class="fa-brands fa-linkedin"></i
+                ></a>
+                <a
+                  href="https://www.researchgate.net/profile/Vinit-Juneja"
+                  target="_blank"
+                  ><i class="fa-brands fa-researchgate"></i
+                ></a>
+                <a href="mailto:vj2269@columbia.edu"
+                  ><i class="fa-solid fa-envelope"></i
+                ></a>
               </div>
             </div>
           </div>
@@ -102,9 +217,12 @@
       <div class="photo-modal-overlay" id="photo-modal-overlay">
         <div class="photo-modal">
           <span class="close-photo-modal">×</span>
-          <img src="assets/mandar-headshot.jpg" alt="Mandar Dhamale" class="enlarged-profile-img">
+          <img
+            src="assets/mandar-headshot.jpg"
+            alt="Mandar Dhamale"
+            class="enlarged-profile-img"
+          />
         </div>
-        
       </div>
 
       <div class="resume-modal-overlay" id="resume-modal-overlay">
@@ -115,30 +233,42 @@
               <span>Resume Preview</span>
             </div>
             <div class="resume-actions">
-              <a href="assets/Resume - Mandar Dhamale.pdf" download class="download-action" title="Download Resume">
+              <a
+                href="assets/Resume - Mandar Dhamale.pdf"
+                download
+                class="download-action"
+                title="Download Resume"
+              >
                 <i class="fa-solid fa-download"></i>
               </a>
-              <a href="assets/Resume - Mandar Dhamale.pdf" target="_blank" class="open-action" title="Open in New Tab">
+              <a
+                href="assets/Resume - Mandar Dhamale.pdf"
+                target="_blank"
+                class="open-action"
+                title="Open in New Tab"
+              >
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
               </a>
               <button class="close-resume-modal" title="Close">&times;</button>
             </div>
           </div>
           <div class="resume-modal-content">
-            <object id="resume-object" data="assets/Resume - Mandar Dhamale.pdf" type="application/pdf" width="100%" height="100%">
-              <iframe id="resume-iframe" src="assets/Resume - Mandar Dhamale.pdf" title="Resume Preview"></iframe>
+            <object
+              id="resume-object"
+              data="assets/Resume - Mandar Dhamale.pdf"
+              type="application/pdf"
+              width="100%"
+              height="100%"
+            >
+              <iframe
+                id="resume-iframe"
+                src="assets/Resume - Mandar Dhamale.pdf"
+                title="Resume Preview"
+              ></iframe>
             </object>
           </div>
         </div>
       </div>
-
-
-    
-    
-
-      
-
-      
 
       <!-- Contact Popup -->
       <div class="popup-overlay" id="popup-overlay"></div>
@@ -150,7 +280,11 @@
             <span>Email</span>
             <p>vj2269@columbia.edu</p>
           </a>
-          <a href="https://calendly.com/vinitjuneja" target="_blank" class="contact-card">
+          <a
+            href="https://calendly.com/vinitjuneja"
+            target="_blank"
+            class="contact-card"
+          >
             <i class="fa-solid fa-calendar"></i>
             <span>Schedule a Call</span>
             <p>Book a 15-min chat</p>
@@ -164,11 +298,10 @@
       </div>
     </div>
 
-    
-  <!-- At the end, just before closing body tag, add this -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="script.js"></script>
-  <script src="chat.js"></script>
+    <!-- At the end, just before closing body tag, add this -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script src="chat.js"></script>
   </body>
-  </html>
+</html>

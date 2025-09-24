@@ -1,150 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Education - Accordion Style</title>
-  <script src="theme-init.js"></script>
-  <script>
-    const theme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', theme);
-  </script>
-  
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Education - Accordion Style</title>
+    <script src="theme-init.js"></script>
+    <script>
+      const theme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", theme);
+    </script>
 
-  <!-- Poppins Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
 
-  <!-- education.css (Accordion + Subtle Radial Glow, NO AOS) -->
-  <link rel="stylesheet" href="education.css" />
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="main-wrapper">
-    <!-- Header -->
-    <header>
-      <div class="logo">
-        <a class='logo-text' href='/'>Vinit Juneja</a>
-      </div>
-      <nav>
-        <div class="togglebtn">
-          <span></span>
-          <span></span>
-          <span></span>
+    <!-- Poppins Font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- education.css (Accordion + Subtle Radial Glow, NO AOS) -->
+    <link rel="stylesheet" href="education.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <!-- Header -->
+      <header>
+        <div class="logo">
+          <a class="logo-text" href="/">Vinit Juneja</a>
         </div>
-        <ul class="navlinks">
-          <li><a href='/'>Home</a></li>
-          <li><a href='/about'>About</a></li>
-          <li><a href='/work'>Work</a></li>
-          <li><a href='/education'>Education</a></li>
-          <li><a href='/certifications'>Certifications</a></li>
-          <li><a href='/projects'>Projects</a></li>
-          <li><a href="#" id="nav-contact">Contact</a></li>
-        </ul>
-        <div class="theme-switch">
-          <input type="checkbox" id="theme-toggle" />
-          <label for="theme-toggle" class="theme-label">
-              <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="5"></circle>
-                  <line x1="12" y1="1" x2="12" y2="3"></line>
-                  <line x1="12" y1="21" x2="12" y2="23"></line>
-                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                  <line x1="1" y1="12" x2="3" y2="12"></line>
-                  <line x1="21" y1="12" x2="23" y2="12"></line>
-                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        <nav>
+          <div class="togglebtn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <ul class="navlinks">
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/work">Work</a></li>
+            <li><a href="/education">Education</a></li>
+            <li><a href="/certifications">Certifications</a></li>
+            <li><a href="/projects">Projects</a></li>
+            <li><a href="#" id="nav-contact">Contact</a></li>
+          </ul>
+          <div class="theme-switch">
+            <input type="checkbox" id="theme-toggle" />
+            <label for="theme-toggle" class="theme-label">
+              <svg
+                class="sun-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
               </svg>
-              <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              <svg
+                class="moon-icon"
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                ></path>
               </svg>
-          </label>
-      </div>
-      </nav>
-    </header>
-
-    <!-- Education Accordion Section -->
-    <section class="accordion-section">
-      <div class="accordion-header">
-        <h2>My Academic Journey</h2>
-      </div>
-
-      <!-- Columbia -->
-      <div class="accordion-card">
-        <div class="accordion-card-header">
-          <div class="institution-info">
-            <img src="assets/usf.png" alt="Columbia Logo" class="institution-logo" />
-            <h3>University of South Florida</h3>
+            </label>
           </div>
-          <div class="header-right">
-            <span class="date-range">Aug 2023 - Dec 2024</span>
-            <div class="accordion-toggle"><i class="fa-solid fa-plus"></i></div>
+        </nav>
+      </header>
+
+      <!-- Education Accordion Section -->
+      <section class="accordion-section">
+        <div class="accordion-header">
+          <h2>My Academic Journey</h2>
+        </div>
+
+        <!-- Columbia -->
+        <div class="accordion-card">
+          <div class="accordion-card-header">
+            <div class="institution-info">
+              <img
+                src="assets/usf2.png"
+                alt="Columbia Logo"
+                class="institution-logo"
+              />
+              <h3>University of South Florida</h3>
+            </div>
+            <div class="header-right">
+              <span class="date-range">Aug 2023 - Dec 2024</span>
+              <div class="accordion-toggle">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </div>
+          </div>
+          <div class="accordion-content">
+            <p class="location">New York</p>
+            <p class="degree">
+              Masters in Management Science and Engineering, CGPA: 3.97/4.0
+            </p>
+            <h4>Key Courses:</h4>
+            <ul>
+              <li>Probability & Statistics</li>
+              <li>Managerial Negotiations</li>
+              <li>Stochastic Modeling</li>
+              <li>Data Visualization and storytelling</li>
+              <li>Game Theoretic Business Strategies</li>
+            </ul>
+            <h4>Leadership & Achievements:</h4>
+            <ul>
+              <li>
+                Teaching Assistant - Probability & Statistics and Computational
+                Models for Supply Chain courses at Columbia University
+              </li>
+              <li>
+                Teaching Assistant - Managerial Decision Making, Turnaround
+                Management and Blockchain, Cryptocurrencies courses at Columbia
+                Business School
+              </li>
+              <li>
+                Vice President - Entrepreneurship, Leadership and Consulting
+                Club (ELC)
+              </li>
+              <li>Stood 3rd in Columbia's Consulting Case Competition</li>
+              <li>Finalist - AstraZeneca Case Competition at Johns Hopkins</li>
+              <li>
+                Lead Department Representative for the IEOR Department at
+                Columbia University
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="accordion-content">
-          <p class="location">New York</p>
-          <p class="degree">
-            Masters in Management Science and Engineering, CGPA: 3.97/4.0
-          </p>
-          <h4>Key Courses:</h4>
-          <ul>
-            <li>Probability & Statistics</li>
-            <li>Managerial Negotiations</li>
-            <li>Stochastic Modeling</li>
-            <li>Data Visualization and storytelling</li>
-            <li>Game Theoretic Business Strategies</li>
-          </ul>
-          <h4>Leadership & Achievements:</h4>
-          <ul>
-            <li>Teaching Assistant - Probability & Statistics and Computational Models for Supply Chain courses at Columbia University</li>
-            <li>Teaching Assistant - Managerial Decision Making, Turnaround Management and Blockchain, Cryptocurrencies courses at Columbia Business School</li>
-            <li>Vice President - Entrepreneurship, Leadership and Consulting Club (ELC)</li>
-            <li>Stood 3rd in Columbia's Consulting Case Competition</li>
-            <li>Finalist - AstraZeneca Case Competition at Johns Hopkins</li>
-            <li>Lead Department Representative for the IEOR Department at Columbia University</li>
-          </ul>
-        </div>
-      </div>
 
-      <!-- VIT -->
-      <div class="accordion-card">
-        <div class="accordion-card-header">
-          <div class="institution-info">
-            <img src="assets/sppu.png" alt="VIT Logo" class="institution-logo" />
-            <h3>Savitribai Phule Pune University</h3>
+        <!-- VIT -->
+        <div class="accordion-card">
+          <div class="accordion-card-header">
+            <div class="institution-info">
+              <img
+                src="assets/sppu.png"
+                alt="VIT Logo"
+                class="institution-logo"
+              />
+              <h3>Savitribai Phule Pune University</h3>
+            </div>
+            <div class="header-right">
+              <span class="date-range">Jul 2019 - Jul 2023</span>
+              <div class="accordion-toggle">
+                <i class="fa-solid fa-plus"></i>
+              </div>
+            </div>
           </div>
-          <div class="header-right">
-            <span class="date-range">Jul 2019 - Jul 2023</span>
-            <div class="accordion-toggle"><i class="fa-solid fa-plus"></i></div>
+          <div class="accordion-content">
+            <p class="location">Vellore</p>
+            <p class="degree">
+              Bachelor of Technology in Computer Science, CGPA: 3.98/4.0 (Top
+              1%)
+            </p>
+            <h4>Key Courses:</h4>
+            <ul>
+              <li>AI & Machine Learning</li>
+              <li>Software Engineering</li>
+              <li>Data Structures and Algorithms</li>
+              <li>Web Mining</li>
+              <li>Object Oriented Programming</li>
+            </ul>
+            <h4>Leadership & Achievements:</h4>
+            <ul>
+              <li>
+                ET Campus Star (2022-23) – Among 87 winners out of 35k+
+                participants
+              </li>
+              <li>Special Achievers Award by Chancellor & Vice-Chancellor</li>
+              <li>
+                Teaching Assistant at NUS – Data Analytics (Deep Learning)
+              </li>
+              <li>
+                Research Assistant at Yuan-Ze University – Vision-based system
+                for elderly care
+              </li>
+            </ul>
           </div>
         </div>
-        <div class="accordion-content">
-          <p class="location">Vellore</p>
-          <p class="degree">
-            Bachelor of Technology in Computer Science, CGPA: 3.98/4.0 (Top 1%)
-          </p>
-          <h4>Key Courses:</h4>
-          <ul>
-            <li>AI & Machine Learning</li>
-            <li>Software Engineering</li>
-            <li>Data Structures and Algorithms</li>
-            <li>Web Mining</li>
-            <li>Object Oriented Programming</li>
-          </ul>
-          <h4>Leadership & Achievements:</h4>
-          <ul>
-            <li>ET Campus Star (2022-23) – Among 87 winners out of 35k+ participants</li>
-            <li>Special Achievers Award by Chancellor & Vice-Chancellor</li>
-            <li>Teaching Assistant at NUS – Data Analytics (Deep Learning)</li>
-            <li>Research Assistant at Yuan-Ze University – Vision-based system for elderly care</li>
-          </ul>
-        </div>
-      </div>
 
-      <!-- IIT Madras
+        <!-- IIT Madras
       <div class="accordion-card">
         <div class="accordion-card-header">
           <div class="institution-info">
@@ -169,93 +236,121 @@
           </ul>
         </div>
       </div> -->
-    </section>
+      </section>
 
-     <!-- Contact Popup -->
-     <div class="popup-overlay" id="popup-overlay"></div>
-     <div id="contact-popup" class="contact-popup">
-         <span class="close-popup">×</span>
-         <div class="contact-methods">
-             <a href="mailto:vj2269@columbia.edu" class="contact-card">
-                 <i class="fa-solid fa-envelope"></i>
-                 <span>Email</span>
-                 <p>vj2269@columbia.edu</p>
-             </a>
-             <a href="https://calendly.com/vinitjuneja" target="_blank" class="contact-card">
-                 <i class="fa-solid fa-calendar"></i>
-                 <span>Schedule a Call</span>
-                 <p>Book a 30-min chat</p>
-             </a>
-             <a href="tel:+9089525914" class="contact-card">
-                 <i class="fa-solid fa-phone"></i>
-                 <span>Phone</span>
-                 <p>+1 (908) 9525914</p>
-             </a>
-         </div>
-     </div>
- </div>
- <div class="resume-modal-overlay" id="resume-modal-overlay">
-  <div class="resume-modal">
-    <div class="resume-modal-header">
-      <div class="resume-title">
-        <i class="fa-regular fa-file-pdf"></i>
-        <span>Resume Preview</span>
-      </div>
-      <div class="resume-actions">
-        <a href="assets/Vinit_PM_Tech.pdf" download class="download-action" title="Download Resume">
-          <i class="fa-solid fa-download"></i>
-        </a>
-        <a href="assets/Vinit_PM_Tech.pdf" target="_blank" class="open-action" title="Open in New Tab">
-          <i class="fa-solid fa-arrow-up-right-from-square"></i>
-        </a>
-        <button class="close-resume-modal" title="Close">&times;</button>
+      <!-- Contact Popup -->
+      <div class="popup-overlay" id="popup-overlay"></div>
+      <div id="contact-popup" class="contact-popup">
+        <span class="close-popup">×</span>
+        <div class="contact-methods">
+          <a href="mailto:vj2269@columbia.edu" class="contact-card">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Email</span>
+            <p>vj2269@columbia.edu</p>
+          </a>
+          <a
+            href="https://calendly.com/vinitjuneja"
+            target="_blank"
+            class="contact-card"
+          >
+            <i class="fa-solid fa-calendar"></i>
+            <span>Schedule a Call</span>
+            <p>Book a 30-min chat</p>
+          </a>
+          <a href="tel:+9089525914" class="contact-card">
+            <i class="fa-solid fa-phone"></i>
+            <span>Phone</span>
+            <p>+1 (908) 9525914</p>
+          </a>
+        </div>
       </div>
     </div>
-    <div class="resume-modal-content">
-      <object id="resume-object" data="assets/Vinit_PM_Tech.pdf" type="application/pdf" width="100%" height="100%">
-        <iframe id="resume-iframe" src="assets/Vinit_PM_Tech.pdf" title="Resume Preview"></iframe>
-      </object>
+    <div class="resume-modal-overlay" id="resume-modal-overlay">
+      <div class="resume-modal">
+        <div class="resume-modal-header">
+          <div class="resume-title">
+            <i class="fa-regular fa-file-pdf"></i>
+            <span>Resume Preview</span>
+          </div>
+          <div class="resume-actions">
+            <a
+              href="assets/Vinit_PM_Tech.pdf"
+              download
+              class="download-action"
+              title="Download Resume"
+            >
+              <i class="fa-solid fa-download"></i>
+            </a>
+            <a
+              href="assets/Vinit_PM_Tech.pdf"
+              target="_blank"
+              class="open-action"
+              title="Open in New Tab"
+            >
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
+            </a>
+            <button class="close-resume-modal" title="Close">&times;</button>
+          </div>
+        </div>
+        <div class="resume-modal-content">
+          <object
+            id="resume-object"
+            data="assets/Vinit_PM_Tech.pdf"
+            type="application/pdf"
+            width="100%"
+            height="100%"
+          >
+            <iframe
+              id="resume-iframe"
+              src="assets/Vinit_PM_Tech.pdf"
+              title="Resume Preview"
+            ></iframe>
+          </object>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
- 
+    <div class="footer-cv-wrapper">
+      <a
+        href="assets/Vinit_PM_Tech.pdf"
+        class="cv-floating-button"
+        download
+        aria-label="Download CV"
+      >
+        <i class="fa-solid fa-file-pdf"></i>
+        <span class="button-text">Download CV</span>
+      </a>
 
- <div class="footer-cv-wrapper">
-  <a
-    href="assets/Vinit_PM_Tech.pdf"
-    class="cv-floating-button"
-    download
-    aria-label="Download CV"
-  >
-    <i class="fa-solid fa-file-pdf"></i>
-    <span class="button-text">Download CV</span>
-  </a>
+      <!-- Eye icon (calls openResumePreview on click) -->
+      <div
+        class="footer-eye-btn"
+        onclick="openResumePreview()"
+        title="Preview CV"
+      >
+        <i class="fa-regular fa-eye"></i>
+      </div>
+    </div>
+    <!-- NO AOS (no scroll animations) -->
 
-  <!-- Eye icon (calls openResumePreview on click) -->
-  <div class="footer-eye-btn" onclick="openResumePreview()" title="Preview CV">
-    <i class="fa-regular fa-eye"></i>
-  </div>
-</div>
-  <!-- NO AOS (no scroll animations) -->
-  
-  <script src="script.js" defer></script>
-  <script src="education.js" defer></script>
-  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
-  <script src="chat.js"></script>
-  <script src="cv-button.js"></script>
+    <script src="script.js" defer></script>
+    <script src="education.js" defer></script>
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js"></script>
+    <script src="chat.js"></script>
+    <script src="cv-button.js"></script>
 
-  <script>
-    function openResumePreview() {
-      const resumeModalOverlay = document.getElementById('resume-modal-overlay');
-      const resumeIframe = document.getElementById('resume-iframe');
-      
-      if (resumeIframe && resumeModalOverlay) {
-        resumeIframe.src = 'assets/Vinit_PM_Tech.pdf';
-        resumeModalOverlay.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+    <script>
+      function openResumePreview() {
+        const resumeModalOverlay = document.getElementById(
+          "resume-modal-overlay"
+        );
+        const resumeIframe = document.getElementById("resume-iframe");
+
+        if (resumeIframe && resumeModalOverlay) {
+          resumeIframe.src = "assets/Vinit_PM_Tech.pdf";
+          resumeModalOverlay.style.display = "flex";
+          document.body.style.overflow = "hidden";
+        }
       }
-    }
-  </script>
-</body>
+    </script>
+  </body>
 </html>

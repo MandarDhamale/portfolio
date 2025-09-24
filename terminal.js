@@ -1,80 +1,83 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const terminalContent = document.querySelector('.terminal-content');
-    let isTyping = false;
+document.addEventListener("DOMContentLoaded", function () {
+  const terminalContent = document.querySelector(".terminal-content");
+  let isTyping = false;
 
-    const commandSequence = [
-        {
-            command: 'Welcome! Thanks for taking the time to check out my website.',
-            output: '',  // No output for welcome message
-            type: 'intro'
-        },
-        {
-            command: 'about_me',
-            output: `• My name is Vinit Juneja.
+  const commandSequence = [
+    {
+      command: "Welcome! Thanks for taking the time to check out my website.",
+      output: "", // No output for welcome message
+      type: "intro",
+    },
+    {
+      command: "about_me",
+      output: `• My name is Vinit Juneja.
 • I did my Undergrad in Computer Science and my Masters in Management Science from Columbia University.
-• I believe, I have best of both worlds. I have a strong technical background and a strong business acumen.`
-        },
-        {
-            command: 'current_strengths',
-            output: `• Software Engineering, AWS, Model Testing, AI automation, Behavioral Economics, Product Management, Consumer Psychology.
+• I believe, I have best of both worlds. I have a strong technical background and a strong business acumen.`,
+    },
+    {
+      command: "current_strengths",
+      output: `• Software Engineering, AWS, Model Testing, AI automation, Behavioral Economics, Product Management, Consumer Psychology.
 • Strong mathematical background (Linear Algebra, Probability, Statistics, Calculus)
 • A belief that I can figure out anything if I put my mind to it - Download my CV to get a better idea
 
-Always looking to connect with fellow tech enthusiasts!`
-        }
-    ];
+Always looking to connect with fellow tech enthusiasts!`,
+    },
+  ];
 
-    async function typeText(text, className = 'terminal-output', speed = 10) {
-        if (isTyping) return;
-        isTyping = true;
+  async function typeText(text, className = "terminal-output", speed = 10) {
+    if (isTyping) return;
+    isTyping = true;
 
-        const line = document.createElement('div');
-        line.className = className;
-        terminalContent.appendChild(line);
+    const line = document.createElement("div");
+    line.className = className;
+    terminalContent.appendChild(line);
 
-        for (let char of text) {
-            line.textContent += char;
-            await new Promise(resolve => setTimeout(resolve, speed));
-        }
-
-        isTyping = false;
+    for (let char of text) {
+      line.textContent += char;
+      await new Promise((resolve) => setTimeout(resolve, speed));
     }
 
-    async function executeCommand(command, output, type = 'command') {
-        if (type === 'intro') {
-            await typeText(command, 'terminal-intro', 10);
-        } else {
-            await typeText('vinit@portfolio:~$ ' + command, 'terminal-command', 10);
-            await new Promise(resolve => setTimeout(resolve, 100));
-            await typeText(output, 'terminal-output', 10);
+    isTyping = false;
+  }
+
+  async function executeCommand(command, output, type = "command") {
+    if (type === "intro") {
+      await typeText(command, "terminal-intro", 10);
+    } else {
+      await typeText("vinit@portfolio:~$ " + command, "terminal-command", 10);
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      await typeText(output, "terminal-output", 10);
+    }
+    await new Promise((resolve) => setTimeout(resolve, 1800));
+  }
+
+  async function startTerminal() {
+    const terminal = document.querySelector(".terminal-container");
+    terminal.classList.add("fade-in");
+
+    for (const cmd of commandSequence) {
+      await executeCommand(cmd.command, cmd.output, cmd.type);
+    }
+  }
+
+  // Start terminal when section becomes visible
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const terminal = entry.target.querySelector(".terminal-container");
+          if (terminal) {
+            startTerminal();
+            observer.unobserve(entry.target);
+          }
         }
-        await new Promise(resolve => setTimeout(resolve, 1800));
-    }
+      });
+    },
+    { threshold: 0.5 }
+  );
 
-    async function startTerminal() {
-        const terminal = document.querySelector('.terminal-container');
-        terminal.classList.add('fade-in');
-
-        for (const cmd of commandSequence) {
-            await executeCommand(cmd.command, cmd.output, cmd.type);
-        }
-    }
-
-    // Start terminal when section becomes visible
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const terminal = entry.target.querySelector('.terminal-container');
-                if (terminal) {
-                    startTerminal();
-                    observer.unobserve(entry.target);
-                }
-            }
-        });
-    }, { threshold: 0.5 });
-
-    const aboutSection = document.querySelector('.about-section');
-    if (aboutSection) {
-        observer.observe(aboutSection);
-    }
+  const aboutSection = document.querySelector(".about-section");
+  if (aboutSection) {
+    observer.observe(aboutSection);
+  }
 });
