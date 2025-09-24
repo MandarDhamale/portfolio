@@ -1,0 +1,6 @@
+# Rewrite rules for pretty URLs
+/about    /about.html    200
+/work     /work.html     200
+/education      /education.html      200
+/certifications /certifications.html 200
+/projects       /projects.html       200
