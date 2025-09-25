@@ -1349,7 +1349,8 @@ nav {
 
 .social a:hover {
     color: var(--text-primary);
-    transform: rotate(360deg) translateY(-3px);
+    /* transform: rotate(360deg) translateY(-3px); */
+    transform: translateY(-3px); /* Lifts the icon 3px up */
 }
 
 .popup-overlay {
