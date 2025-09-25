@@ -21,32 +21,6 @@
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <style>
-      /* Ensure the hero container is column by default */
-      .hero-logos {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        gap: 2rem;
-        flex-wrap: wrap;
-        margin-bottom: 1.5rem;
-      }
-
-      /* Mobile view: move logos below hero content */
-      @media (max-width: 768px) {
-        .container {
-          display: flex;
-          flex-direction: column-reverse; /* logos go below content */
-          align-items: center;
-        }
-
-        .hero-logos {
-          margin-top: 1rem; /* space above logos after they move down */
-          margin-bottom: 0; /* remove original bottom margin */
-        }
-      }
-    </style>
   </head>
 
   <body class="home">
@@ -123,40 +97,6 @@
       <!-- Hero Section -->
       <section class="hero-wrapper">
         <div class="container">
-          <!-- Logos row: College & Previous Company -->
-          <div class="hero-logos">
-            <img
-              src="assets/ivalua.png"
-              style="height: 3rem; width: auto; max-width: 100%"
-              alt="Ivalua Logo"
-            />
-            <img
-              src="assets/usf.png"
-              style="height: 3rem; width: auto; max-width: 100%"
-              alt="USF Logo"
-            />
-            <img
-              src="assets/sppu.png"
-              style="height: 3rem; width: auto; max-width: 100%"
-              alt="USF Logo"
-            />
-            <img
-              src="assets/pes.jpeg"
-              style="height: 3rem; width: auto; max-width: 100%"
-              alt="USF Logo"
-            />
-                        <img
-              src="assets/ijrar.png"
-              style="height: 3rem; width: auto; max-width: 100%"
-              alt="USF Logo"
-            />
-                                    <img
-              src="assets/udemy.png"
-              style="height: 3rem; width: auto; max-width: 100%"
-              alt="USF Logo"
-            />
-          </div>
-
           <div class="hero-text">
             <div class="hero-image-container">
               <img
@@ -174,6 +114,7 @@
                 AI-powered features.
               </p>
               <div class="btn-group">
+                <!-- Replace your current Download CV button with this -->
                 <div
                   class="btn-with-eye"
                   style="position: relative; display: inline-block"
