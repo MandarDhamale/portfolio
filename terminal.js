@@ -2,7 +2,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const terminalContent = document.querySelector(".terminal-content");
   let isTyping = false;
 
-  const commandSequence = [
+ 
+
+ const commandSequence = [
     {
       command: "Welcome! Thanks for taking the time to check out my website.",
       output: "", // No output for welcome message
@@ -10,20 +12,21 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     {
       command: "about_me",
-      output: `• My name is Vinit Juneja.
-• I did my Undergrad in Computer Science and my Masters in Management Science from Columbia University.
-• I believe, I have best of both worlds. I have a strong technical background and a strong business acumen.`,
+      output: `• My name is Mandar Dhamale.
+• I am a Master's student in Computer Science at the University of South Florida and a Research Assistant focusing on neural networks for medical imaging.
+• I previously worked as a Software Development Engineer, where I built and scaled backend modules for a major SaaS platform.`,
     },
     {
       command: "current_strengths",
-      output: `• Software Engineering, AWS, Model Testing, AI automation, Behavioral Economics, Product Management, Consumer Psychology.
-• Strong mathematical background (Linear Algebra, Probability, Statistics, Calculus)
-• A belief that I can figure out anything if I put my mind to it - Download my CV to get a better idea
+      output: `• Core Strengths: Java, Python, Spring Boot, SQL, REST APIs, System Design, Git.
+• Machine Learning: TensorFlow, Keras, Pandas, scikit-learn.
+• Cloud & DevOps: Docker, AWS, Kubernetes, Kafka.
+• A passion for building robust, data-driven applications and solving complex problems with machine learning.
 
 Always looking to connect with fellow tech enthusiasts!`,
     },
   ];
-
+  
   async function typeText(text, className = "terminal-output", speed = 10) {
     if (isTyping) return;
     isTyping = true;
