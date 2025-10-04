@@ -411,13 +411,13 @@ document.addEventListener("DOMContentLoaded", function () {
   if (typingElement && typeof Typed !== "undefined") {
     new Typed(".input", {
       strings: [
-        "A Tech Enthusiast",
-        "A Software Engineer",
-        "A Problem Solver",
-        "An AI/ML Explorer",
-      ],
-      typeSpeed: 70,
-      backSpeed: 55,
+  "Building Smart Software",
+  "Crafting Scalable Systems",
+  "Solving Real-World Problems",
+  "Turning Ideas into Code"
+],
+      typeSpeed: 100,
+      backSpeed: 80,
       loop: true,
     });
   }
