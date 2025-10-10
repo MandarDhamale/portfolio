@@ -664,3 +664,27 @@
     font-size: clamp(14px, 2vw, 16px);
   }
 }
+
+/* Definitive fix for both alignment and filtering */
+
+section.projects-wrapper .project-grid {
+  display: grid;
+  align-items: stretch;
+}
+
+/* This rule FORCES flex alignment on cards by default */
+section.projects-wrapper .project-card {
+  display: flex !important;
+  flex-direction: column !important;
+  height: 100%;
+}
+
+/* This more-specific rule FORCES the card to hide when it has the .hidden class */
+section.projects-wrapper .project-card.hidden {
+  display: none !important;
+}
+
+/* This rule keeps the button at the bottom of all visible cards */
+section.projects-wrapper .project-card .view-button {
+  margin-top: auto;
+}

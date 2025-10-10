@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mandar Dhamale - Projects</title>
     <script>
-      // Theme initialization and toggle functionality
-      document.addEventListener("DOMContentLoaded", function () {
-        const theme = localStorage.getItem("theme") || "light";
-        document.documentElement.setAttribute("data-theme", theme);
+      // --- Immediate Theme Initialization to Prevent Flash ---
 
-        // Set correct checkbox state based on theme
+      // This part runs immediately, before the page is rendered.
+      const theme = localStorage.getItem("theme") || "light";
+      document.documentElement.setAttribute("data-theme", theme);
+
+      // This part waits for the page to load before setting up the toggle functionality.
+      document.addEventListener("DOMContentLoaded", function () {
+        // Set correct checkbox state based on the already-applied theme
         const themeToggle = document.getElementById("theme-toggle");
         if (themeToggle) {
           themeToggle.checked = theme === "light";
@@ -20,7 +23,7 @@
         // Ensure icons display correctly on page load
         updateThemeIcons(theme);
 
-        // Add event listener for theme toggle
+        // Add event listener for the theme toggle button
         if (themeToggle) {
           themeToggle.addEventListener("change", function () {
             const newTheme = this.checked ? "light" : "dark";
@@ -31,7 +34,7 @@
         }
       });
 
-      // Separate function to update theme icons visibility
+      // This function can also be defined outside, as it's called by the listener.
       function updateThemeIcons(theme) {
         const sunIcon = document.querySelector(".sun-icon");
         const moonIcon = document.querySelector(".moon-icon");
@@ -318,8 +321,9 @@
               />
               <h3>Loan Approval Prediction</h3>
               <p>
-                Developed an end-to-end machine learning model to predict loan
-                approval with 82% accuracy.
+                Developed a machine learning model to predict loan approval with
+                82% accuracy, utilizing EDA, K-Means clustering, and an AdaBoost
+                classifier to assess and minimize applicant risk.
               </p>
               <a
                 href="https://drive.google.com/file/d/1bFLVLy9JUAlL7JIiRnbV6o05XvysD5oW/view?usp=sharing"
@@ -366,16 +370,16 @@
               data-aos-delay="1000"
             >
               <img
-                src="assets/resume-parser.jpg"
+                src="assets/cuda.png"
                 alt="ResumeParser-Classifier System Mockup"
                 class="project-image"
               />
-              <h3>ResumeParser-Classifier System</h3>
+              <h3>CUDA Programming</h3>
               <p>
-                Built a multi-label classification model using Deep Learning and
-                NLP to classify resumes into IT job categories, integrating a
-                Resume Parser with NER, DNN, CNN, LSTM, and BERT, using Python
-                libraries like TensorFlow and SpaCy.
+                Implemented CUDA-based parallelization to accelerate
+                computational tasks by distributing workloads across multiple
+                GPU threads, achieving significant performance improvement
+                compared to CPU execution.
               </p>
               <a
                 href="https://github.com/abhay-lal/ResumeParserClassifier"
@@ -386,7 +390,7 @@
               >
             </div>
 
-            <div
+            <!-- <div
               class="project-card technical"
               data-category="technical"
               data-aos="fade-up"
@@ -414,9 +418,9 @@
                 rel="noopener noreferrer"
                 >View Project</a
               >
-            </div>
+            </div> -->
 
-            <div
+            <!-- <div
               class="project-card technical"
               data-category="technical"
               data-aos="fade-up"
@@ -444,7 +448,7 @@
                 rel="noopener noreferrer"
                 >View Project</a
               >
-            </div>
+            </div> -->
           </div>
           <button class="load-more" data-aos="fade-up" data-aos-delay="1400">
             Load More

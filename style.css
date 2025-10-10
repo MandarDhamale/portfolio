@@ -96,6 +96,15 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+@keyframes ripple-effect {
+  /* The circle grows to a massive size to cover the whole screen */
+  to {
+    transform: scale(150);
+    opacity: 1;
+  }
+}
+/* custom mrd end */
+
 /* Hide floating CV button when resume modal is open */
 .resume-modal-overlay[style*="display: flex"] ~ .footer-cv-wrapper,
 .resume-modal-overlay[style*="display: flex"] ~ a[href*="Download"],
@@ -1743,6 +1752,9 @@ header {
         height: clamp(50px, 8vw, 70px);
     }
 
-
 }
+
+
+
+
 

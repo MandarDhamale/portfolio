@@ -39,6 +39,19 @@ document.addEventListener("DOMContentLoaded", function () {
         "Collaborated on research by surveying and reproducing 10+ academic papers to establish performance benchmarks and validate experimental findings",
       ],
     },
+    // ADDED THIS NEW ENTRY
+    pes_mcoe: {
+      title: "Web Developer",
+      company: "P.E.S Modern College of Engineering",
+      duration: "March 2019 – May 2019",
+      icon: "fa-code", // A more fitting icon
+      bgClass: "pes-mcoe-bg", // A unique background class
+      achievements: [
+        "Developed and launched a new departmental website using HTML, CSS, and JavaScript, improving information accessibility for students.",
+        "Collaborated with faculty to create an online portal for course material distribution, reducing paper usage by 40%.",
+        "Implemented a responsive design, ensuring the website was fully functional and user-friendly across desktop and mobile devices.",
+      ],
+    },
     amazon: {
       title: "Research Assistant",
       company: "University of South Florida",

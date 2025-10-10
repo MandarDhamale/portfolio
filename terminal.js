@@ -47,7 +47,7 @@ Always looking to connect with fellow tech enthusiasts!`,
     if (type === "intro") {
       await typeText(command, "terminal-intro", 10);
     } else {
-      await typeText("vinit@portfolio:~$ " + command, "terminal-command", 10);
+      await typeText("mandar@portfolio:~$ " + command, "terminal-command", 10);
       await new Promise((resolve) => setTimeout(resolve, 100));
       await typeText(output, "terminal-output", 10);
     }
